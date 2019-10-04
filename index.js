@@ -8,6 +8,10 @@ var client = mqtt.connect('wss://polloLSW:PolloSecreto@broker.shiftr.io',{
  var body = document.getElementById('body');
  var btn = document.getElementById('btn');
  var sp = document.getElementById('sp');
+ /*
+ Llamado de función de encendido y de apagado, determinar por resultado
+ de respuesta del servidor, crear función que detrmine eso
+ */
  function ActualizarUI() {
    if(state){
      body.style.background = "#eee";
@@ -32,6 +36,10 @@ var client = mqtt.connect('wss://polloLSW:PolloSecreto@broker.shiftr.io',{
    client.publish('/ALSW/Led','1');
  }
  function LedOff() {
-    console.log("Apagar Led");
-    client.subscribe('/ALSW/Boton');
+   console.log("Encender Led");
+   client.publish('/ALSW/Led','0');
  }
+client.on('connect',function(){
+  console.log("MQTT conectado");
+  client.subscribe('/ALSW/Boton');
+});
