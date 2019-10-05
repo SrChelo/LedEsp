@@ -2,7 +2,7 @@ let btnOn = 0;
 let btnOff = 0;
 let state = true;
 
-var client = mqtt.connect('wss://polloLSW:PolloSecreto@broker.shiftr.io',{
+var client = mqtt.connect('wss://6f94b3b8:fb43ea4bdb89893c@broker.shiftr.io',{
   clientId:'Controlador Web'
 });
  var body = document.getElementById('body');
